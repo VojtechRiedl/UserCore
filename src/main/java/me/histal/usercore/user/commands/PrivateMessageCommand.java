@@ -28,7 +28,7 @@ public class PrivateMessageCommand implements TabExecutor {
         }
         Player player = (Player) sender;
         if(args.length < 2){
-            player.sendMessage("Použij /msg <hráč> <zpráva>");
+            player.sendMessage("Použij /pm <hráč> <zpráva>");
             return true;
         }
         Player target = Bukkit.getPlayer(args[0]);
