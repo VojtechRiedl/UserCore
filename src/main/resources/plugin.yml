@@ -1,0 +1,4 @@
+name: UserCore
+version: '${project.version}'
+main: me.histal.usercore.UserCore
+api-version: 1.19
