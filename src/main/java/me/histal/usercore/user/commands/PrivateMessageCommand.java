@@ -36,6 +36,10 @@ public class PrivateMessageCommand implements TabExecutor {
             player.sendMessage("Hráč nenalezen");
             return true;
         }
+        if(target.equals(player)){
+            player.sendMessage("Nemůžeš poslat zprávu sobě");
+            return true;
+        }
         String[] message = Arrays.copyOfRange(args,1,args.length);
         User user = plugin.getUserManager().getUser(player.getName());
         User targetUser = plugin.getUserManager().getUser(target.getName());
