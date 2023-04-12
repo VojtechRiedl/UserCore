@@ -7,7 +7,7 @@ public class User {
 
     public User() {
         this.togglePrivateMessage = true;
-        this.rank = 0;
+        this.rank = 1;
     }
 
     public boolean getTogglePrivateMessage() {
@@ -22,11 +22,7 @@ public class User {
         return this.rank;
     }
 
-    public boolean setRank(short rank) {
-        if(rank < 0 || rank > 128) {
-            return false;
-        }
+    public void setRank(short rank) {
         this.rank = rank;
-        return true;
     }
 }

@@ -2,6 +2,7 @@ package me.histal.usercore.user;
 
 import me.histal.usercore.UserCore;
 import me.histal.usercore.user.controllers.PrivateMessageController;
+import me.histal.usercore.user.controllers.RankController;
 import org.bukkit.entity.Player;
 
 import java.util.HashMap;
@@ -12,11 +13,13 @@ public class UserManager {
     private HashMap<String,User> users = new HashMap<>();
 
     private PrivateMessageController privateMessageController;
+    private RankController rankController;
 
 
     public UserManager() {
        this.plugin = UserCore.getInstance();
        this.privateMessageController = new PrivateMessageController();
+       this.rankController = new RankController();
     }
 
 
@@ -44,5 +47,9 @@ public class UserManager {
 
     public PrivateMessageController getPrivateMessageController() {
         return privateMessageController;
+    }
+
+    public RankController getRankController() {
+        return rankController;
     }
 }

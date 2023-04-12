@@ -7,3 +7,6 @@ commands:
   pmtoggle:
     description: Toggle private messaging
     usage: /pmtoggle
+  rank:
+    description: Change your rank
+    usage: /rank <player> <rank>
