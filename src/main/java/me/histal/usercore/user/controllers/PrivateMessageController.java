@@ -23,7 +23,7 @@ public class PrivateMessageController {
         if (who == null || to == null || message == null) {
             return;
         }
-        if(!to.getTogglePrivateMessage() && who.getRank() < to.getRank()){
+        if (!to.getTogglePrivateMessage() && who.getRank() < to.getRank()){
             who.getPlayer().sendMessage("hráč má vypnuté soukromé zprávy");
             return;
         }
