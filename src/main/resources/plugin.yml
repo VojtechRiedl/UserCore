@@ -10,3 +10,6 @@ commands:
   rank:
     description: Change your rank
     usage: /rank <player> <rank>
+  pm:
+    description: Send a private message
+    usage: /pm <player> <message>

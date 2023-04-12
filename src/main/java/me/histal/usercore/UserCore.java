@@ -2,6 +2,7 @@ package me.histal.usercore;
 
 import me.histal.usercore.user.UserManager;
 import me.histal.usercore.user.commands.ChangeRankCommand;
+import me.histal.usercore.user.commands.PrivateMessageCommand;
 import me.histal.usercore.user.commands.PrivateMessageToggleCommand;
 import me.histal.usercore.user.listeners.LoginListener;
 import org.bukkit.command.TabExecutor;
@@ -24,6 +25,7 @@ public final class UserCore extends JavaPlugin {
 
         registerCommand("pmtoggle", new PrivateMessageToggleCommand());
         registerCommand("rank", new ChangeRankCommand());
+        registerCommand("pm", new PrivateMessageCommand());
         this.getServer().getPluginManager().registerEvents(new LoginListener(), this);
 
     }

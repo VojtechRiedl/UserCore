@@ -11,4 +11,12 @@ public class Utils {
             return null;
         }
     }
+
+    public static String stringArrayToString(String[] args) {
+        StringBuilder builder = new StringBuilder();
+        for (String arg : args) {
+            builder.append(arg);
+        }
+        return builder.toString();
+    }
 }
