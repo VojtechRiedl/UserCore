@@ -2,3 +2,8 @@ name: UserCore
 version: '${project.version}'
 main: me.histal.usercore.UserCore
 api-version: 1.19
+
+commands:
+  pmtoggle:
+    description: Toggle private messaging
+    usage: /pmtoggle

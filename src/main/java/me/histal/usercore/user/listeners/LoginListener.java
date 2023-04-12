@@ -2,9 +2,10 @@ package me.histal.usercore.user.listeners;
 
 import me.histal.usercore.UserCore;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
-public class LoginListener {
+public class LoginListener implements Listener {
 
     private UserCore plugin;
 
@@ -15,7 +16,7 @@ public class LoginListener {
 
     @EventHandler
     public void onJoin(PlayerJoinEvent e) {
-        plugin.getUserManager().CreateOrGetUser(e.getPlayer());
+        plugin.getUserManager().createOrGetUser(e.getPlayer());
 
     }
 
