@@ -12,7 +12,7 @@ public class PrivateMessageController {
     }
 
     public boolean switchTogglePrivateMessage(User user) {
-        if (user == null) {
+        if(user == null) {
             return false;
         }
         user.setTogglePrivateMessage(!user.getTogglePrivateMessage());
