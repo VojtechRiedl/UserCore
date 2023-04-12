@@ -6,6 +6,7 @@ import me.histal.usercore.user.User;
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.command.TabExecutor;
 import org.bukkit.entity.Player;
 
@@ -22,40 +23,35 @@ public class ChangeRankCommand implements TabExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        if(!(sender instanceof Player)){
+        if(!(sender instanceof ConsoleCommandSender)){
             return true;
         }
-        Player player = (Player) sender;
         if(args.length != 2){
-            player.sendMessage("Použij /rank <hráč> <rank>");
             return true;
         }
         Player target = Bukkit.getPlayer(args[0]);
         if(target == null){
-            player.sendMessage("Hráč nenalezen");
+            sender.sendMessage("Hráč nenalezen");
             return true;
         }
         Short rank = Utils.convertStringToShort(args[1]);
         if(rank == null){
-            player.sendMessage("Takový rank neexistuje!");
+            sender.sendMessage("Takový rank neexistuje!");
             return true;
         }
         User user = plugin.getUserManager().getUser(target.getName());
         boolean success = plugin.getUserManager().getRankController().setRank(user,rank);
 
         if(!success){
-            player.sendMessage("Rank se nepodařilo změnit");
+            sender.sendMessage("Rank se nepodařilo změnit");
             return true;
         }
-        player.sendMessage("Rank hráče " + target.getName() + " byl změněn na " + rank);
+        sender.sendMessage("Rank hráče " + target.getName() + " byl změněn na " + rank);
         return true;
     }
 
     @Override
     public List<String> onTabComplete(CommandSender sender, Command command, String label, String[] args) {
-        if(args.length == 1){
-            return Bukkit.getOnlinePlayers().stream().map(player -> player.getName()).collect(Collectors.toList());
-        }
         return null;
     }
 }
